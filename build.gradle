@@ -1,0 +1,138 @@
+plugins {
+    // Apply the Java plugin to add support for Java
+    id 'java'
+
+    // Apply the Spring Boot plugin for dependency management and building
+    id 'org.springframework.boot' version '3.1.0'
+
+    // Apply the Spring Dependency Management plugin
+    id 'io.spring.dependency-management' version '1.1.0'
+
+    // Apply the CycloneDX BOM plugin for generating Bill of Materials
+    id 'org.cyclonedx.bom' version '1.7.2'
+}
+
+group = 'dev.package.maintanance'
+version = '1.0.0'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+repositories {
+    // Use Maven Central for resolving dependencies
+    mavenCentral()
+}
+
+dependencies {
+    // ========================
+    // Spring Boot Dependencies
+    // ========================
+
+    // Core Spring Boot starter
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Spring Boot Starter for building web applications
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Boot Starter for Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Spring Boot Starter for Spring Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // ========================
+    // Database Dependencies
+    // ========================
+
+    // PostgreSQL JDBC driver (runtime scope)
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // ========================
+    // Testing Dependencies
+    // ========================
+
+    // JUnit Jupiter API for writing tests
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+
+    // JUnit Jupiter Engine for running tests
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+
+    // Spring Boot Starter for testing (includes other testing libraries)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // ========================
+    // Kafka Dependencies
+    // ========================
+
+    // Spring for Apache Kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    // ========================
+    // Avro Dependencies
+    // ========================
+
+    // Apache Avro for data serialization
+    implementation 'org.apache.avro:avro'
+
+    // Confluent Kafka Avro Serializer
+    implementation 'io.confluent:kafka-avro-serializer:7.0.0'
+
+    // ========================
+    // AWS Dependencies
+    // ========================
+
+    // AWS SDK for S3
+    implementation 'software.amazon.awssdk:s3'
+
+    // ========================
+    // JWT Parsing Dependencies
+    // ========================
+
+    // JJWT API for JWT creation and parsing
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+
+    // JJWT Implementation (runtime scope)
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+
+    // JJWT Jackson module for JSON processing (runtime scope)
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+
+    // ========================
+    // JSON Processing Dependencies
+    // ========================
+
+    // Jackson Databind for JSON serialization/deserialization
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // ========================
+    // Miscellaneous Dependencies
+    // ========================
+
+    // Poorly supported library (ensure compatibility)
+    implementation 'org.violetlib:vutils'
+
+    // ========================
+    // Micrometer Dependencies
+    // ========================
+
+    // Micrometer Core for application metrics
+    implementation 'io.micrometer:micrometer-core'
+
+    // Micrometer Prometheus Registry for exposing metrics to Prometheus
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    // ========================
+    // Logging Dependencies
+    // ========================
+
+    // Logback Classic for logging implementation
+    implementation 'ch.qos.logback:logback-classic'
+
+    // Spring Boot Starter for logging (includes Logback)
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+}
+
+test {
+    // Use JUnit Platform for running tests
+    useJUnitPlatform()
+}
